@@ -14,6 +14,8 @@
 
 .custom-navbar {
   position: relative;
+  /* height: calc(100vh - 90px);
+   */
   height: calc(100vh - 90px);
   /* TODO: Calculate height depend on  the bottom of page */
   background-color: black;
@@ -128,13 +130,13 @@
 }
 
 .install-app {
-  position: absolute;
+  background-color: red;
   bottom: 0;
   left: 0;
   height: 40px;
   background-color: black;
   z-index: 999;
-  padding-inline: 8px;
+  padding-inline: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
