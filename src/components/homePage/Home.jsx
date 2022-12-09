@@ -1,11 +1,11 @@
 import "./home.css";
-// import Header from "../header/Header";
-// import { Container, Nav, Navbar } from "react-bootstrap";
-// import { Link } from "react-router-dom";
 import MainNavbar from "./../navbar/MainNavbar";
 import Player from "../player/Player";
-import { Alert, Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
+
+import Song from "../Song";
+
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [songsData, setSongsData] = useState(null);
@@ -190,18 +190,8 @@ const Home = () => {
             {songsData && (
               <>
                 {songsData.map((song) => {
-                  return (
-                    <div className="d-flex flex-column align-items-start">
-                      <div>
-                        <span>{song.artist.name}</span> - {song.title}
-                      </div>
-                      <div>
-                        <small>{song.album.title}</small>
-                      </div>
-                      <hr />
-                    </div>
-                  );
-                })}{" "}
+                  return <Song song={song} />;
+                })}
               </>
             )}
           </Container>

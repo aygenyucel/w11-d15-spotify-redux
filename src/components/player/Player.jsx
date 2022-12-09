@@ -1,7 +1,10 @@
 import { Col, Container, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import "./player.css";
 
 const Player = () => {
+  const searchedSong = useSelector((state) => state.search.searchedSong);
+  const searchedArtist = useSelector((state) => state.search.searchedArtist);
   return (
     <>
       <div className="footer">
@@ -31,10 +34,10 @@ const Player = () => {
                     className="mr-4 d-sm-none d-md-block"
                   >
                     <div className="d-flex justify-content-start player-song">
-                      The Division Bell
+                      {searchedSong !== "" ? searchedSong : "The Division Bell"}
                     </div>
                     <div className="d-flex justify-content-start player-artist">
-                      Pink Floyd
+                      {searchedArtist !== "" ? searchedArtist : "Pink Floydd"}
                     </div>
                   </div>
                   <div id="heart-footer" className="d-none d-md-block">

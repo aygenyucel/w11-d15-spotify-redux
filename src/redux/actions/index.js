@@ -9,3 +9,24 @@ export const setSearchedSongAction = (data) => {
     payload: data,
   };
 };
+
+export const setSearchedArtistAction = (data) => {
+  return {
+    type: SET_SEARCHED_ARTIST,
+    payload: data,
+  };
+};
+
+export const addToLikedSongsAction = (data) => {
+  return {
+    type: ADD_TO_LIKED_SONGS,
+    payload: data,
+  };
+};
+
+export const removeFromLikedSongsAction = (data) => {
+  return {
+    type: REMOVE_FROM_LIKED_SONGS,
+    payload: data,
+  };
+};
