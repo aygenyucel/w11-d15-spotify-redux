@@ -9,6 +9,7 @@
   width: 100%;
   text-align: center;
   /* #191919 */
+  position: absolute;
 }
 
 #footer-container {
@@ -80,8 +81,9 @@
 }
 
 #artist-and-song-footer {
-  width: 100px;
+  width: 100%;
   height: 70px;
+  overflow-x: hidden;
 }
 
 #artist-and-song-footer div {

@@ -1,11 +1,37 @@
 import "./home.css";
 // import Header from "../header/Header";
-// import Footer from "../footer/Footer";
 // import { Container, Nav, Navbar } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import MainNavbar from "./../navbar/MainNavbar";
-import Footer from "./../footer/Footer";
+import Player from "../player/Player";
+import { Alert, Col, Container, Form, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
 const Home = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [songsData, setSongsData] = useState(null);
+
+  const getSongs = async () => {
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/deezer/search?q=${searchQuery}`
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setSongsData(data.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getSongs();
+    console.log("searchQuery:", searchQuery);
+    console.log("songsData:", songsData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery]);
+
   return (
     <>
       <div className="home-page">
@@ -142,9 +168,46 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <Container>
+            <Row>
+              <Col>
+                <Form>
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Control
+                      type="text"
+                      placeholder="search.."
+                      value={searchQuery}
+                      onChange={(e) => {
+                        setSearchQuery(e.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                </Form>
+              </Col>
+            </Row>
+          </Container>
+          <Container className="searched-songs-container">
+            {songsData && (
+              <>
+                {songsData.map((song) => {
+                  return (
+                    <div className="d-flex flex-column align-items-start">
+                      <div>
+                        <span>{song.artist.name}</span> - {song.title}
+                      </div>
+                      <div>
+                        <small>{song.album.title}</small>
+                      </div>
+                      <hr />
+                    </div>
+                  );
+                })}{" "}
+              </>
+            )}
+          </Container>
         </div>
       </div>
-      <Footer />
+      <Player />
     </>
   );
 };

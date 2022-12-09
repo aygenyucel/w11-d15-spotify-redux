@@ -16,7 +16,9 @@
 .home-page {
   font-family: var(--font-main);
   display: flex;
+  height: calc(100vh - 90px);
   width: 100vw;
+  overflow-y: hidden;
 }
 .header {
   background-color: rgba(72, 72, 72, 0.5);
@@ -42,7 +44,8 @@
   padding-inline: 10px;
   color: var(--color-white);
   width: 100%;
-  height: calc(100vh - 90px);
+  /* height: calc(100vh - 90px); */
+  /* height: calc(100vh-90px); */
   overflow: auto;
   background: rgb(82, 6, 3);
   background: linear-gradient(
@@ -179,4 +182,9 @@
 
 .album-card-horizontal:hover {
   background-color: var(--bg-transparent-lighter);
+}
+
+.searched-songs-container {
+  overflow-y: auto;
+  height: 350px;
 }
