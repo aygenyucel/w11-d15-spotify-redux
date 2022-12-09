@@ -2,6 +2,7 @@ export const ADD_TO_LIKED_SONGS = "ADD_LIKED_SONGS";
 export const REMOVE_FROM_LIKED_SONGS = "REMOVE_FROM_LIKED_SONGS";
 export const SET_SEARCHED_SONG = "SET_SEARCHED_SONG";
 export const SET_SEARCHED_ARTIST = "SET_SEARCHED_ARTIST";
+export const SET_SEARCHED_IMG = "SET_SEARCHED_IMG";
 
 export const setSearchedSongAction = (data) => {
   return {
@@ -27,6 +28,13 @@ export const addToLikedSongsAction = (data) => {
 export const removeFromLikedSongsAction = (data) => {
   return {
     type: REMOVE_FROM_LIKED_SONGS,
+    payload: data,
+  };
+};
+
+export const setSearchedImgAction = (data) => {
+  return {
+    type: SET_SEARCHED_IMG,
     payload: data,
   };
 };

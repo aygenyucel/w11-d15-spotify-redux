@@ -5,6 +5,7 @@ import "./player.css";
 const Player = () => {
   const searchedSong = useSelector((state) => state.search.searchedSong);
   const searchedArtist = useSelector((state) => state.search.searchedArtist);
+  const searchedImg = useSelector((state) => state.search.searchedImg);
   return (
     <>
       <div className="footer">
@@ -25,7 +26,11 @@ const Player = () => {
                 >
                   <div id="image-music-player" className="mr-2">
                     <img
-                      src="https://i.scdn.co/image/ab67616d0000b2738431fb4cb38f8ee96d3434c0"
+                      src={
+                        searchedArtist !== ""
+                          ? searchedImg
+                          : "https://i.scdn.co/image/ab67616d0000b2738431fb4cb38f8ee96d3434c0"
+                      }
                       alt=""
                     />
                   </div>

@@ -1,8 +1,13 @@
-import { SET_SEARCHED_ARTIST, SET_SEARCHED_SONG } from "./../actions/index";
+import {
+  SET_SEARCHED_ARTIST,
+  SET_SEARCHED_IMG,
+  SET_SEARCHED_SONG,
+} from "./../actions/index";
 
 const initialState = {
   searchedSong: "",
   searchedArtist: "",
+  searchedImg: "",
 };
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -15,6 +20,11 @@ const searchReducer = (state = initialState, action) => {
       return {
         ...state,
         searchedSong: action.payload,
+      };
+    case SET_SEARCHED_IMG:
+      return {
+        ...state,
+        searchedImg: action.payload,
       };
     default:
       return state;

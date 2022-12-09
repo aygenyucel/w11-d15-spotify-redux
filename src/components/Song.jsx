@@ -3,6 +3,7 @@ import {
   addToLikedSongsAction,
   removeFromLikedSongsAction,
   setSearchedArtistAction,
+  setSearchedImgAction,
   setSearchedSongAction,
 } from "../redux/actions";
 import { useDispatch } from "react-redux";
@@ -16,10 +17,9 @@ const Song = ({ song }) => {
       <div className="d-flex flex-column align-items-start">
         <div
           onClick={() => {
-            dispatch(
-              setSearchedSongAction(song.title),
-              dispatch(setSearchedArtistAction(song.artist.name))
-            );
+            dispatch(setSearchedSongAction(song.title));
+            dispatch(setSearchedArtistAction(song.artist.name));
+            dispatch(setSearchedImgAction(song.album.cover_small));
           }}
           style={{ cursor: "pointer" }}
         >
