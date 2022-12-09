@@ -186,5 +186,18 @@
 
 .searched-songs-container {
   overflow-y: auto;
-  height: 350px;
+}
+
+.search-bar-main-page {
+  width: 200px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.search-bar-main-page .form-control,
+.search-bar-main-page .form-control:focus {
+  border-radius: 30px;
+  background-color: var(--bg-transparent-light);
+  border: none;
 }
